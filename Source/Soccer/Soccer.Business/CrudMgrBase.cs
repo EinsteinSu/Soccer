@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using Soccer.DataAccess;
 
@@ -20,20 +21,36 @@ namespace Soccer.Business
 
     public abstract class CrudMgrBase<T> : ICrudMgr<T>, IDisposable where T : class
     {
-        protected readonly SoccerContext Context = new SoccerContext();
+        protected readonly SoccerContext Context;
 
         public CrudMgrBase()
         {
+            Context = new SoccerContext();
 #if DEBUG
 
 #else
-       var licence = new License("ssu.lic");
-            if (!licence.Validate())
-            {
-                //todo: read the documentation of how to use the license exception.
-                throw new LicenseException(typeof(int), this, "You have no license to visit this application.");
-            }     
+      validate license
 #endif
+        }
+
+        public CrudMgrBase(SoccerContext context)
+        {
+            Context = context;
+#if DEBUG
+
+#else
+      validate license
+#endif
+        }
+
+        protected void ValidateLicense()
+        {
+            //var licence = new License("ssu.lic");
+            //if (!licence.Validate())
+            //{
+            //    //todo: read the documentation of how to use the license exception.
+            //    throw new LicenseException(typeof(int), this, "You have no license to visit this application.");
+            //}
         }
 
         protected abstract string EntityName { get; }

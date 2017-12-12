@@ -55,8 +55,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrudTestBase.cs" />
+    <Compile Include="PlayerMgrTest.cs" />
+    <Compile Include="ScheduleMgrTest.cs" />
     <Compile Include="TeamMgrTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

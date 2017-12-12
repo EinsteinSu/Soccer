@@ -34,7 +34,7 @@ namespace Soccer.DataAccess
         public Player ReplacingPlayer { get; set; }
 
         [ForeignKey("ReplacingPlayer")]
-        public int ReplacingPlayerId { get; set; }
+        public int? ReplacingPlayerId { get; set; }
         #endregion
 
         public virtual List<Goal> Goals { get; set; }

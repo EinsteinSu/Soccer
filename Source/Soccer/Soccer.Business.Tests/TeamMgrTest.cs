@@ -1,17 +1,21 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Soccer.DataAccess;
 
 namespace Soccer.Business.Tests
 {
     [TestClass]
-    public class TeamMgrTest : TestBase
+    public class TeamMgrTest : CrudTestBase<Team>
     {
-        protected TeamMgr Mgr = new TeamMgr();
 
+        protected override void InitializeStuffs()
+        {
+            Mgr = new TeamMgr();
+        }
+
+        #region teams
         [TestMethod]
-        public void GetList()
+        public override void GetList()
         {
             AddTeam();
             var id = AddTeam();
@@ -19,29 +23,7 @@ namespace Soccer.Business.Tests
             Assert.AreEqual(1, Mgr.GetItems().Count());
         }
 
-        [TestMethod]
-        public void Add()
-        {
-            AddTeam();
-        }
-
-        [TestMethod]
-        public void Update()
-        {
-            var id = AddTeam();
-            Assert.IsTrue(id > 0);
-        }
-
-        [TestMethod]
-        public void Remove()
-        {
-            var id = AddTeam();
-            Mgr.Delete(id);
-            var list = Mgr.GetItems();
-            Assert.IsTrue(!list.Any());
-        }
-
-        protected int AddTeam()
+        protected override int AddStuff()
         {
             var team = new Team
             {
@@ -53,22 +35,33 @@ namespace Soccer.Business.Tests
             Assert.IsTrue(team.Id > 0);
             return team.Id;
         }
-    }
 
-    public class TestBase
-    {
-        protected SoccerContext Context = new SoccerContext();
-
-        [TestInitialize]
-        public void Initialize()
+        protected override void UpdateProperty(Team item)
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Databases"));
+            item.Name = "China1";
         }
 
-        [TestCleanup]
-        public void Cleanup()
+        protected override Team FindStuff(int id)
         {
-            Context.Database.ExecuteSqlCommand("Delete from Teams");
+            return Context.Teams.FirstOrDefault(f => f.Id == id);
         }
+
+        protected override void AssertUpdate(Team item, Team newItem)
+        {
+            Assert.AreEqual(item.Name, newItem.Name);
+        }
+
+        protected override void AssertDelete(Team item)
+        {
+            Assert.IsTrue(item.Deleted);
+        }
+
+
+        protected int AddTeam()
+        {
+            return AddTeam(Mgr as TeamMgr);
+        }
+        #endregion
+
     }
 }
