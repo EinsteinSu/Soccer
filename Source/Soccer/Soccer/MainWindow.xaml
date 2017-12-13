@@ -1,12 +1,100 @@
-﻿<Window x:Class="Soccer.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Soccer"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" xmlns:ViewModels="clr-namespace:Soccer.ViewModels" x:Class="Soccer.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Soccer" Height="350" Width="525" DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:MainWindowViewModel}}">
     <Grid>
-        
+        <DockPanel>
+            <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="OfficeSlim" ToolbarShowMode="Hide" SelectedPageChanged="RibbonControl_OnSelectedPageChanged">
+                <dxr:RibbonControl.ApplicationMenu>
+                    <dxr:BackstageViewControl>
+                        <dxr:BackstageTabItem Content="Load Game">
+                            <Grid/>
+                        </dxr:BackstageTabItem>
+                        <dxr:BackstageTabItem Content="Settings">
+                            <Grid/>
+                        </dxr:BackstageTabItem>
+                        <dxr:BackstageButtonItem Content="Close" Glyph="{dx:DXImage Image=Close_32x32.png}"/>
+                    </dxr:BackstageViewControl>
+                </dxr:RibbonControl.ApplicationMenu>
+                <!--<dxr:RibbonControl.ToolbarItems>
+                    <dxb:BarButtonItem Content="Undo" Glyph="{dx:DXImage Image=Undo_16x16.png}"/>
+                    <dxb:BarButtonItem Content="Redo" Glyph="{dx:DXImage Image=Redo_16x16.png}"/>
+                </dxr:RibbonControl.ToolbarItems>-->
+                <dxr:RibbonDefaultPageCategory>
+                    <dxr:RibbonPage Caption="Data Management" Tag="1">
+                        <dxr:RibbonPageGroup Caption="Data Management">
+                            <dxb:BarButtonItem Content="Teams and Players" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Schedules" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                        <!--<dxr:RibbonPageGroup Caption="Ribbon Page Group">
+                            <dxb:BarButtonItem Content="Cut" Glyph="{dx:DXImage Image=Cut_16x16.png}" LargeGlyph="{dx:DXImage Image=Cut_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Copy" Glyph="{dx:DXImage Image=Copy_16x16.png}" LargeGlyph="{dx:DXImage Image=Copy_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}" LargeGlyph="{dx:DXImage Image=Paste_32x32.png}"/>
+                        </dxr:RibbonPageGroup>-->
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Display" Tag="2">
+                        <dxr:RibbonPageGroup Caption="Text Alignment">
+                            <dxb:BarButtonItem Content="Show Display Screen" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Settings" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup Caption="Print">
+                            <dxb:BarButtonItem Content="Before Game" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="In Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="After Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Result" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Game Data" Tag="3">
+                        <dxr:RibbonPageGroup Caption="Text Alignment">
+                            <dxb:BarButtonItem Content="Refresh" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Save" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                        <!--<dxr:RibbonPageGroup Caption="Print">
+                            <dxb:BarButtonItem Content="Before Game" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="In Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="After Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>-->
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="Reports" Tag="4">
+                        <dxr:RibbonPageGroup Caption="Text Alignment">
+                            <dxb:BarButtonItem Content="Report 1" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Report 2" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Report 3" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                        <!--<dxr:RibbonPageGroup Caption="Print">
+                            <dxb:BarButtonItem Content="Before Game" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="In Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="After Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>-->
+                    </dxr:RibbonPage>
+                    <dxr:RibbonPage Caption="About" Tag="5">
+                        <dxr:RibbonPageGroup Caption="Text Alignment">
+                            <dxb:BarButtonItem Content="Report 1" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Contact us" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                        </dxr:RibbonPageGroup>
+                        <!--<dxr:RibbonPageGroup Caption="Print">
+                            <dxb:BarButtonItem Content="Before Game" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="In Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                            <dxb:BarButtonItem Content="After Game" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
+                        </dxr:RibbonPageGroup>-->
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+                <dxr:RibbonStatusBarControl.LeftItems>
+                    <dxb:BarStaticItem Content="Current Game:" ShowBorder="False"/>
+                    <dxb:BarStaticItem Content="{Binding Status}"/>
+                </dxr:RibbonStatusBarControl.LeftItems>
+            </dxr:RibbonStatusBarControl>
+            <Grid>
+                <ContentControl Content="{Binding ContentPage.Content}"></ContentControl>
+            </Grid>
+        </DockPanel>
+
     </Grid>
 </Window>
