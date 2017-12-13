@@ -9,7 +9,7 @@ using Soccer.DataAccess;
 namespace Soccer.Business.Tests
 {
     [TestClass]
-    public class GameDataMgrTest:CrudTestBase<GameData>
+    public class GameDataMgrTest : CrudTestBase<GameData>
     {
         protected override void InitializeStuffs()
         {
@@ -18,8 +18,14 @@ namespace Soccer.Business.Tests
 
         protected override int AddStuff()
         {
-            //add schedule
-            //add players
+            var mgr = new ScheduleMgr();
+            var id = AddSchedule(mgr);
+            var schedule = mgr.GetItem(id);
+            Assert.IsNotNull(schedule);
+            AddTeamPlayers(schedule.HostId, 18);
+            AddTeamPlayers(schedule.GuestId, 18);
+            GameData data = new GameData();
+            data.ScheduleId = id;
             return 0;
         }
 

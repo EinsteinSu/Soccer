@@ -22,7 +22,7 @@ namespace Soccer.DataAccess
             modelBuilder.Entity<Schedule>().HasRequired(t => t.Guest).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Schedule>().HasRequired(t => t.Host).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<GameData>().HasRequired(p => p.Player).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<GameData>().HasRequired(p => p.ReplacingPlayer).WithMany().WillCascadeOnDelete(false);
+            //modelBuilder.Entity<GameData>().HasRequired(p => p.ReplacingPlayer).WithMany().WillCascadeOnDelete(false);
         }
     }
 }

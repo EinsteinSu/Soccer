@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Soccer.DataAccess;
 
@@ -18,17 +14,7 @@ namespace Soccer.Business.Tests
 
         protected override int AddStuff()
         {
-            var teamMgr = new TeamMgr();
-            var host = AddTeam(teamMgr);
-            var guest = AddTeam(teamMgr);
-            var schedule = new Schedule();
-            schedule.Name = "World cup match 1";
-            schedule.DisplayName = "World cup";
-            schedule.HostId = host;
-            schedule.GuestId = guest;
-            Mgr.Add(schedule);
-            Assert.IsTrue(schedule.Id > 0);
-            return schedule.Id;
+            return AddSchedule(Mgr as ScheduleMgr);
         }
 
         protected override void UpdateProperty(Schedule item)
@@ -44,6 +30,19 @@ namespace Soccer.Business.Tests
         protected override void AssertUpdate(Schedule item, Schedule newItem)
         {
             Assert.AreEqual(item.Name, newItem.Name);
+        }
+
+        [TestMethod]
+        public void GenerateGameData()
+        {
+            var id = AddStuff();
+            var mgr = Mgr as ScheduleMgr;
+            Assert.IsNotNull(mgr);
+            var schedule = mgr.GetItem(id);
+            AddTeamPlayers(schedule.HostId, 18);
+            AddTeamPlayers(schedule.GuestId, 18);
+            mgr.GenerateGameData(id);
+            Assert.AreEqual(18 * 2, mgr.GetDataByScheduleId(id).Count());
         }
 
         protected override void AssertDelete(Schedule item)

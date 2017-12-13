@@ -7,7 +7,10 @@ using Soccer.DataAccess;
 
 namespace Soccer.Business
 {
-    public interface IGameDataMgr : ICrudMgr<GameData> { }
+    public interface IGameDataMgr : ICrudMgr<GameData>
+    {
+
+    }
 
     public class GameDataMgr : CrudMgrBase<GameData>, IGameDataMgr
     {

@@ -25,10 +25,9 @@ namespace Soccer.Business
 
         public void GenerateGameData(int scheduleId)
         {
-            var gameDataMgr = new GameDataMgr(Context);
             var schedule = GetItem(scheduleId);
-            AddPlayers(schedule.HostId, scheduleId, gameDataMgr);
-            AddPlayers(schedule.GuestId, scheduleId, gameDataMgr);
+            AddPlayers(schedule.HostId, scheduleId);
+            AddPlayers(schedule.GuestId, scheduleId);
         }
 
         public void UpdateGameData(GameData data)
@@ -59,7 +58,7 @@ namespace Soccer.Business
             Context.Entry(schedule).Property(p => p.Deleted).IsModified = true;
         }
 
-        private void AddPlayers(int teamId, int scheduleId, GameDataMgr mgr)
+        private void AddPlayers(int teamId, int scheduleId)
         {
             foreach (var player in Context.Players.Where(w => w.TeamId == teamId))
             {
@@ -68,8 +67,10 @@ namespace Soccer.Business
                     ScheduleId = scheduleId,
                     PlayerId = player.Id
                 };
-                mgr.Add(data);
+                Context.GameDatas.Add(data);
             }
+
+            Context.SaveChanges();
         }
     }
 }

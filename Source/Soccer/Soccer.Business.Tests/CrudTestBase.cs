@@ -75,5 +75,38 @@ namespace Soccer.Business.Tests
             Assert.IsTrue(team.Id > 0);
             return team.Id;
         }
+
+        protected int AddSchedule(ScheduleMgr mgr)
+        {
+            var teamMgr = new TeamMgr();
+            var host = AddTeam(teamMgr);
+            var guest = AddTeam(teamMgr);
+            var schedule = new Schedule
+            {
+                Name = "World cup match 1",
+                DisplayName = "World cup",
+                HostId = host,
+                GuestId = guest
+            };
+            mgr.Add(schedule);
+            Assert.IsTrue(schedule.Id > 0);
+            return schedule.Id;
+        }
+
+        protected void AddTeamPlayers(int teamId, int playerCount)
+        {
+            var playerMgr = new PlayerMgr(Context);
+            for (int i = 0; i < playerCount; i++)
+            {
+                var player = new Player
+                {
+                    Name = $"Player{i+1}",
+                    DisplayName = $"Player{i+1}",
+                    Number = i + 1,
+                    TeamId = teamId
+                };
+                playerMgr.Add(player);
+            }
+        }
     }
 }
