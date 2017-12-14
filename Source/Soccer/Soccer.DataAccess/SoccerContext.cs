@@ -16,6 +16,8 @@ namespace Soccer.DataAccess
 
         public IDbSet<GameData> GameDatas { get; set; }
 
+        public IDbSet<Goal> Goals { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

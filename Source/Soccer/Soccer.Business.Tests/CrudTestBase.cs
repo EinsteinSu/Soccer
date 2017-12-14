@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Soccer.DataAccess;
@@ -100,13 +101,25 @@ namespace Soccer.Business.Tests
             {
                 var player = new Player
                 {
-                    Name = $"Player{i+1}",
-                    DisplayName = $"Player{i+1}",
+                    Name = $"Player{i + 1}",
+                    DisplayName = $"Player{i + 1}",
                     Number = i + 1,
                     TeamId = teamId
                 };
                 playerMgr.Add(player);
             }
+        }
+
+        protected int AddPlayer(int teamId, string name, int number)
+        {
+            var player = new Player();
+            player.Name = player.DisplayName = name;
+            player.Number = number;
+            player.TeamId = teamId;
+            var mgr = new PlayerMgr();
+            mgr.Add(player);
+            Assert.IsTrue(player.Id > 0);
+            return player.Id;
         }
     }
 }

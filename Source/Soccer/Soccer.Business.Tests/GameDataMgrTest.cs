@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Soccer.DataAccess;
 
@@ -22,11 +19,20 @@ namespace Soccer.Business.Tests
             var id = AddSchedule(mgr);
             var schedule = mgr.GetItem(id);
             Assert.IsNotNull(schedule);
-            AddTeamPlayers(schedule.HostId, 18);
-            AddTeamPlayers(schedule.GuestId, 18);
-            GameData data = new GameData();
-            data.ScheduleId = id;
-            return 0;
+            var playerId = AddPlayer(schedule.HostId, "Buffon", 1);
+            var data = new GameData
+            {
+                ScheduleId = id,
+                PlayerId = playerId,
+                YellowCard1 = DateTime.Now
+            };
+            Mgr.Add(data);
+            return data.Id;
+        }
+
+        public int AddGameData()
+        {
+            return AddStuff();
         }
 
         protected override void UpdateProperty(GameData item)
@@ -36,17 +42,17 @@ namespace Soccer.Business.Tests
 
         protected override GameData FindStuff(int id)
         {
-            throw new NotImplementedException();
+            return Context.GameDatas.FirstOrDefault(f => f.Id == id);
         }
 
         protected override void AssertUpdate(GameData item, GameData newItem)
         {
-            throw new NotImplementedException();
+            Assert.AreEqual(item.IsFirst, newItem.IsFirst);
         }
 
         protected override void AssertDelete(GameData item)
         {
-            throw new NotImplementedException();
+            Assert.IsNull(item);
         }
     }
 }

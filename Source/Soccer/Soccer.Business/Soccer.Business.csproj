@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CrudMgrBase.cs" />
     <Compile Include="GameDataMgr.cs" />
+    <Compile Include="GoalMgr.cs" />
     <Compile Include="PlayerMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduleMgr.cs" />
