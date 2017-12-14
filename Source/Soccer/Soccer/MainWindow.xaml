@@ -28,7 +28,7 @@
                 <dxr:RibbonDefaultPageCategory>
                     <dxr:RibbonPage Caption="Data Management" Tag="1">
                         <dxr:RibbonPageGroup Caption="Data Management">
-                            <dxb:BarButtonItem Content="Teams and Players" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
+                            <dxb:BarButtonItem Content="Teams and Players" Command="{Binding FeatureClickCommand}" CommandParameter="TeamsAndPlayers" Glyph="{dx:DXImage Image=Open_16x16.png}" LargeGlyph="{dx:DXImage Image=Open_32x32.png}"/>
                             <dxb:BarButtonItem Content="Schedules" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
                         </dxr:RibbonPageGroup>
                         <!--<dxr:RibbonPageGroup Caption="Ribbon Page Group">

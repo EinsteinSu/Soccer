@@ -4,7 +4,6 @@ using Soccer.ViewModels;
 
 namespace Soccer
 {
-    /// <inheritdoc />
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
@@ -24,8 +23,7 @@ namespace Soccer
             }
             else
             {
-                if (sender is RibbonControl content)
-                {
+                if (sender is RibbonControl content){
                     var currentPage = content.SelectedPage;
                     if (currentPage?.Tag != null)
                         context.MenuChanged((Menu) int.Parse(currentPage.Tag.ToString()));
