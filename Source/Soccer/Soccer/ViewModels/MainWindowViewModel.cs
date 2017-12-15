@@ -66,7 +66,9 @@ namespace Soccer.ViewModels
     [POCOViewModel]
     public class ContentPage : ViewModelBase
     {
-        private FrameworkElement _content; public string Name { get; set; }
+        private FrameworkElement _content;
+
+        public string Name { get; set; }
 
         public Menu Group { get; set; }
 
@@ -75,6 +77,8 @@ namespace Soccer.ViewModels
             get => _content;
             set => SetProperty(ref _content, value, "Content");
         }
+
+        public bool Initialized => Content != null;
 
         public int Index { get; set; }
 
