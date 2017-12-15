@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="CrudTestBase.cs" />
     <Compile Include="GameDataMgrTest.cs" />
+    <Compile Include="GoalMgrTest.cs" />
     <Compile Include="PlayerMgrTest.cs" />
     <Compile Include="ScheduleMgrTest.cs" />
     <Compile Include="TeamMgrTest.cs" />

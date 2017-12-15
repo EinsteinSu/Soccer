@@ -30,11 +30,6 @@ namespace Soccer.Business.Tests
             return data.Id;
         }
 
-        public int AddGameData()
-        {
-            return AddStuff();
-        }
-
         protected override void UpdateProperty(GameData item)
         {
             item.IsFirst = true;

@@ -37,7 +37,7 @@ namespace Soccer.Business
 
         public void AddGoal(int gameDataId, DateTime? time = null)
         {
-            var goal = new Goal {Time = time ?? DateTime.Now};
+            var goal = new Goal { Time = time ?? DateTime.Now, GameDataId = gameDataId };
             try
             {
                 Context.Goals.Add(goal);
