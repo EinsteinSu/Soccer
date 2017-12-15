@@ -17,7 +17,7 @@ namespace Soccer.Common
         public const string GameDataEditName = "GameDataEdit";
         public FunctionClickManager()
         {
-            LisenceController controller = new LisenceController();
+            LicenseController controller = new LicenseController();
             controller.Validated(new MacAddressSerialNumber());
 
 

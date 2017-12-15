@@ -21,22 +21,22 @@ namespace Soccer.Common.Tests
         [TestMethod]
         public void FirstWithoutDirectory()
         {
-            var controller = new LisenceController();
+            var controller = new LicenseController();
             Assert.IsTrue(Directory.Exists(DataDirectory));
         }
 
         [TestMethod]
         public void Validate_In_One_Computer()
         {
-            var controller = new LisenceController();
+            var controller = new LicenseController();
             Assert.IsTrue(controller.Validated(new MockISerialNumber(1)));
-            Assert.IsTrue(File.Exists(Path.Combine(DataDirectory, LisenceController.LicenseFileName)));
+            Assert.IsTrue(File.Exists(Path.Combine(DataDirectory, LicenseController.LicenseFileName)));
         }
 
         [TestMethod]
         public void Validate_In_Two_Computer()
         {
-            var controller = new LisenceController();
+            var controller = new LicenseController();
             controller.Validated(new MockISerialNumber(1));
             controller.Validated(new MockISerialNumber(2));
             Assert.AreEqual(2, controller.LisenceCount);
@@ -46,7 +46,7 @@ namespace Soccer.Common.Tests
         [ExpectedException(typeof(Exception))]
         public void Validate_In_More_Than_Three_Computer()
         {
-            var controller = new LisenceController();
+            var controller = new LicenseController();
             controller.Validated(new MockISerialNumber(1));
             controller.Validated(new MockISerialNumber(2));
             controller.Validated(new MockISerialNumber(3));
