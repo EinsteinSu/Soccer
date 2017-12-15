@@ -17,6 +17,10 @@ namespace Soccer.Common
         public const string GameDataEditName = "GameDataEdit";
         public FunctionClickManager()
         {
+            LisenceController controller = new LisenceController();
+            controller.Validated(new MacAddressSerialNumber());
+
+
             #region create the groups and functions
             _pages = new ObservableCollection<ContentPage>
             {

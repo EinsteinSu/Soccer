@@ -45,7 +45,11 @@
   <ItemGroup>
     <Compile Include="ContentPage.cs" />
     <Compile Include="FunctionClickManager.cs" />
+    <Compile Include="ISerialNumber.cs" />
+    <Compile Include="LisenceController.cs" />
+    <Compile Include="MacAddressSerialNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringSecurity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
