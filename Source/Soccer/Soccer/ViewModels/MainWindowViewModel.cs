@@ -60,8 +60,7 @@ namespace Soccer.ViewModels
                     break;
             }
             ContentPage = page;
-        }
-    }
+        }}
 
     [POCOViewModel]
     public class ContentPage : ViewModelBase
