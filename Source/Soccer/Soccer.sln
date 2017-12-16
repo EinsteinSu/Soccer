@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Business", "Soccer.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Business.Tests", "Soccer.Business.Tests\Soccer.Business.Tests.csproj", "{E02B1C26-5700-4A35-BFE9-77EDE8E0405B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Common", "Soccer.Common\Soccer.Common.csproj", "{4AA87C26-DFEE-43A5-A15B-95004684A4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Common.Tests", "Soccer.Common.Tests\Soccer.Common.Tests.csproj", "{EED884B1-EEB7-4F36-8BA9-0E5441C14988}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{E02B1C26-5700-4A35-BFE9-77EDE8E0405B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E02B1C26-5700-4A35-BFE9-77EDE8E0405B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E02B1C26-5700-4A35-BFE9-77EDE8E0405B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA87C26-DFEE-43A5-A15B-95004684A4A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA87C26-DFEE-43A5-A15B-95004684A4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA87C26-DFEE-43A5-A15B-95004684A4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA87C26-DFEE-43A5-A15B-95004684A4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

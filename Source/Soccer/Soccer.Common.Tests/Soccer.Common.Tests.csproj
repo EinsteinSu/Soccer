@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E02B1C26-5700-4A35-BFE9-77EDE8E0405B}</ProjectGuid>
+    <ProjectGuid>{EED884B1-EEB7-4F36-8BA9-0E5441C14988}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Soccer.Business.Tests</RootNamespace>
-    <AssemblyName>Soccer.Business.Tests</AssemblyName>
+    <RootNamespace>Soccer.Common.Tests</RootNamespace>
+    <AssemblyName>Soccer.Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -38,12 +38,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.18\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -51,31 +45,20 @@
       <HintPath>..\packages\MSTest.TestFramework.1.1.18\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrudTestBase.cs" />
-    <Compile Include="GameDataMgrTest.cs" />
-    <Compile Include="GoalMgrTest.cs" />
-    <Compile Include="PlayerMgrTest.cs" />
-    <Compile Include="ScheduleMgrTest.cs" />
-    <Compile Include="TeamMgrTest.cs" />
+    <Compile Include="FunctionClickManagerTest.cs" />
+    <Compile Include="LisenceControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Soccer.Business\Soccer.Business.csproj">
-      <Project>{e4e3abe3-57cf-4fcd-ac1e-659959b85732}</Project>
-      <Name>Soccer.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Soccer.DataAccess\Soccer.DataAccess.csproj">
-      <Project>{362e28f6-d4c1-45ff-9696-68415a372f2a}</Project>
-      <Name>Soccer.DataAccess</Name>
+    <ProjectReference Include="..\Soccer.Common\Soccer.Common.csproj">
+      <Project>{4aa87c26-dfee-43a5-a15b-95004684a4a9}</Project>
+      <Name>Soccer.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
