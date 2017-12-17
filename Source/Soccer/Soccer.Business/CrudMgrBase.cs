@@ -86,8 +86,7 @@ namespace Soccer.Business
                 AddItem(item);
                 Context.SaveChanges();
             }
-            catch (Exception exception)
-            {
+            catch (Exception exception){
                 throw new Exception(string.Format("add {0} failed, {1}", EntityName, exception.InnerException.Message));
             }
         }

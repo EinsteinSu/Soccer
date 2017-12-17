@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Soccer.Common.Tests
@@ -9,7 +11,7 @@ namespace Soccer.Common.Tests
         [TestMethod]
         public void FindPageByGroup()
         {
-            var mgr = new FunctionClickManager();
+            var mgr = new FunctionClickManager(InitializeContent);
             var page = mgr.FindPage(Group.DataManagement);
             Assert.IsTrue(page.Initialized);
             Assert.AreEqual(page.Name, FunctionClickManager.TeamsAndPlayersName);
@@ -18,7 +20,7 @@ namespace Soccer.Common.Tests
         [TestMethod]
         public void FindPageByName()
         {
-            var mgr = new FunctionClickManager();
+            var mgr = new FunctionClickManager(InitializeContent);
             //click display game before
             var page = mgr.FindPage(FunctionClickManager.DisplayGameBeforeName);
             Assert.IsTrue(page.Initialized);
@@ -35,6 +37,11 @@ namespace Soccer.Common.Tests
             Assert.IsNotNull(item);
             //the first one should be the last one
             Assert.IsTrue(item.Index == 999);
+        }
+
+        private static FrameworkElement InitializeContent(string name)
+        {
+            return new TextBlock { Text = name };
         }
     }
 }

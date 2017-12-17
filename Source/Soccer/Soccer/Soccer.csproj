@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.0.1\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
@@ -74,6 +77,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\Data\TeamEditable.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\TeamAndPlayerViewModel.cs" />
     <Compile Include="Views\TeamAndPlayer.xaml.cs">
@@ -125,9 +129,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common\Supeng.Data.Common.csproj">
+      <Project>{5931fd3a-3bc8-4ed0-a8e4-9067a8055847}</Project>
+      <Name>Supeng.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Soccer.Business\Soccer.Business.csproj">
       <Project>{e4e3abe3-57cf-4fcd-ac1e-659959b85732}</Project>
       <Name>Soccer.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Soccer.Common\Soccer.Common.csproj">
+      <Project>{4AA87C26-DFEE-43A5-A15B-95004684A4A9}</Project>
+      <Name>Soccer.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Soccer.DataAccess\Soccer.DataAccess.csproj">
       <Project>{362e28f6-d4c1-45ff-9696-68415a372f2a}</Project>

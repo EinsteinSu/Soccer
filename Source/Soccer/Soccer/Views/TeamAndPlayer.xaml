@@ -4,15 +4,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Soccer.Views"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="Soccer.Views.TeamAndPlayer"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    x:Class="Soccer.Views.TeamAndPlayer"
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
 
-        <dxg:GridControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True">
+        <dxg:GridControl x:Name="grid" ItemsSource="{Binding Collection,Mode=TwoWay}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Name"></dxg:GridColumn>
+                <dxg:GridColumn FieldName="DisplayName"></dxg:GridColumn>
+                <dxg:GridColumn FieldName="Description"></dxg:GridColumn>
+            </dxg:GridControl.Columns>
             <dxg:GridControl.View>
-                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" ShowGroupPanel="False"
-                               NavigationStyle="Row" />
+                <dxg:TableView x:Name="view" RowUpdated="View_OnRowUpdated" EditorButtonShowMode="ShowForFocusedRow" EditFormShowMode="Inline" NewItemRowPosition="Top"  AllowPerPixelScrolling="True" ShowTotalSummary="True" ShowGroupPanel="False"
+                               NavigationStyle="Row">
+                    <dxg:TableView.RowCellMenuCustomizations>
+                        <dxb:BarButtonItem Content="Delete" Command="{x:Static dxg:GridCommands.DeleteFocusedRow}" />
+                    </dxg:TableView.RowCellMenuCustomizations>
+                </dxg:TableView>
             </dxg:GridControl.View>
         </dxg:GridControl>
 

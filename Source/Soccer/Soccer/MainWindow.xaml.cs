@@ -1,7 +1,7 @@
 ﻿using System;
 using DevExpress.Xpf.Ribbon;
+using Soccer.Common;
 using Soccer.ViewModels;
-
 namespace Soccer
 {
     /// <summary>
@@ -26,7 +26,7 @@ namespace Soccer
                 if (sender is RibbonControl content){
                     var currentPage = content.SelectedPage;
                     if (currentPage?.Tag != null)
-                        context.MenuChanged((Menu) int.Parse(currentPage.Tag.ToString()));
+                        context.MenuChanged((Group) int.Parse(currentPage.Tag.ToString()));
                 }
             }
         }

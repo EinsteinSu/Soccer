@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
+using Soccer.Common;
 using Soccer.DataAccess;
 using Soccer.Views;
 
@@ -11,10 +12,9 @@ namespace Soccer.ViewModels
     [POCOViewModel]
     public class MainWindowViewModel : ViewModelBase
     {
-        protected readonly List<ContentPage> Pages = new List<ContentPage>();
         private ContentPage _contentPage;
         private DelegateCommand<string> _featureClickCommand;
-
+        private readonly FunctionClickManager _functionClickManager = new FunctionClickManager(InitializeContent);
         public DelegateCommand<string> FeatureClickCommand
         {
             get => _featureClickCommand;
@@ -36,61 +36,30 @@ namespace Soccer.ViewModels
             set => SetProperty(ref _contentPage, value, "ContentPage");
         }
 
-        public void Click(string feature){
-            MessageBox.Show(feature);
+        public void Click(string feature)
+        {
+            //todo: implement the show dialog window method 
+            ContentPage = _functionClickManager.FindPage(feature);
         }
 
         public string Status { get; set; }
 
-        public void MenuChanged(Menu menu)
+        public void MenuChanged(Group menu)
         {
-            //todo: 1 if has no default page, create; 2 if has multiplies page created, show the recent page by index.
-            var page = new ContentPage();
-            page.Name = menu.ToString();
-            page.Group = menu;
-
-            switch (menu)
-            {
-                case Menu.DataManagement:
-                    page.Content = new TeamAndPlayer();
-                    page.Content.DataContext = new TeamAndPlayerViewModel(); //input Iprogress
-                    break;
-                default:
-                    page.Content = new TextBlock { Text = "Click me" };
-                    break;
-            }
-            ContentPage = page;
-        }}
-
-    [POCOViewModel]
-    public class ContentPage : ViewModelBase
-    {
-        private FrameworkElement _content;
-
-        public string Name { get; set; }
-
-        public Menu Group { get; set; }
-
-        public FrameworkElement Content
-        {
-            get => _content;
-            set => SetProperty(ref _content, value, "Content");
+            ContentPage = _functionClickManager.FindPage(menu);
         }
 
-        public bool Initialized => Content != null;
-
-        public int Index { get; set; }
-
-        public bool RelatedGame { get; set; }
+        public static FrameworkElement InitializeContent(string name)
+        {
+            switch (name)
+            {
+                case FunctionClickManager.TeamsAndPlayersName:var viewModel = new TeamAndPlayerViewModel();
+                    viewModel.Refresh();
+                    return new TeamAndPlayer { DataContext = viewModel };
+                default:
+                    return new TextBlock { Text = name };
+            }
+        }
     }
 
-    public enum Menu
-    {
-        File,
-        DataManagement,
-        Display,
-        GameData,
-        Reports,
-        About
-    }
 }

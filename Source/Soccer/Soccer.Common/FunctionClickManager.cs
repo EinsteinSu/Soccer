@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Soccer.Common
 {
     public class FunctionClickManager
     {
+        private readonly Func<string, FrameworkElement> _initializeContent;
         private readonly ObservableCollection<ContentPage> _pages;
         public const string TeamsAndPlayersName = "TeamsAndPlayers";
         public const string ScheduleName = "Schedule";
@@ -15,8 +17,9 @@ namespace Soccer.Common
         public const string DisplayGameName = "DisplayGame";
         public const string DisplayGameAfterName = "DisplayGameAfter";
         public const string GameDataEditName = "GameDataEdit";
-        public FunctionClickManager()
+        public FunctionClickManager(Func<string, FrameworkElement> initializeContent)
         {
+            _initializeContent = initializeContent;
             LicenseController controller = new LicenseController();
             controller.Validated(new MacAddressSerialNumber());
 
@@ -99,20 +102,7 @@ namespace Soccer.Common
         {
             if (!page.Initialized)
             {
-                page.Content = new TextBlock { Text = page.Name };
-                //todo: initialize page by the content page name
-                //switch (page.Name)
-                //{
-                //    case TeamsAndPlayersName:
-                //        page.Content = new TextBlock { Text = "Teams And Players" };
-                //        break;
-                //    case ScheduleName:
-                //        page.Content = new TextBlock { Text = "Schedule" };
-                //        break;
-                //    case DisplayGameBeforeName:
-                //        page.Content = new TextBlock { Text = "Schedule" };
-                //        break;
-                //}
+               page.Content = _initializeContent?.Invoke(page.Name);
             }
         }
     }

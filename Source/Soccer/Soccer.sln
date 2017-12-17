@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer", "Soccer\Soccer.csproj", "{8E045FDE-DCF4-4C41-A933-386B3ABFCB7E}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Common", "Soccer.Common\Soccer.Common.csproj", "{4AA87C26-DFEE-43A5-A15B-95004684A4A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Common.Tests", "Soccer.Common.Tests\Soccer.Common.Tests.csproj", "{EED884B1-EEB7-4F36-8BA9-0E5441C14988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Data.Common", "..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common\Supeng.Data.Common.csproj", "{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Data.Common.Tests", "..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common.Tests\Supeng.Data.Common.Tests.csproj", "{724457CF-E589-41CE-8CCF-6AAEB0380874}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED884B1-EEB7-4F36-8BA9-0E5441C14988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
