@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Data.Common", "..\..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Data.Common.Tests", "..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common.Tests\Supeng.Data.Common.Tests.csproj", "{724457CF-E589-41CE-8CCF-6AAEB0380874}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Wpf.Common", "..\..\..\SupengCommon\SupengCommon\Supeng.Wpf.Common\Supeng.Wpf.Common.csproj", "{CAF49A5D-5914-4303-93AD-3CF7C7222B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supeng.Wpf.Common.Test", "..\..\..\SupengCommon\SupengCommon\Supeng.Wpf.Common.Test\Supeng.Wpf.Common.Test.csproj", "{ED73EE35-1F8D-4463-9D75-E0758236F8E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{724457CF-E589-41CE-8CCF-6AAEB0380874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF49A5D-5914-4303-93AD-3CF7C7222B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF49A5D-5914-4303-93AD-3CF7C7222B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF49A5D-5914-4303-93AD-3CF7C7222B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF49A5D-5914-4303-93AD-3CF7C7222B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED73EE35-1F8D-4463-9D75-E0758236F8E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED73EE35-1F8D-4463-9D75-E0758236F8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED73EE35-1F8D-4463-9D75-E0758236F8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED73EE35-1F8D-4463-9D75-E0758236F8E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,24 +1,58 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Caliburn.Micro;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using Soccer.Common.DataEdit;
 using Soccer.DataAccess;
 using Supeng.Data.Common;
+using Supeng.Wpf.Common.ViewModels;
 
 namespace Soccer.ViewModels.Data
 {
-    public class TeamEditable : PropertyChangedBase, IEditableData
+    public class TeamEditable : EditableModelBase<Team>, IInitialize<TeamEditable>, ICloneable<TeamEditable>
     {
         private string _description;
         private string _displayName;
         private string _name;
+        private EditableCollection<PlayerEditable> _players;
 
         public TeamEditable()
         {
+            _players = new EditableCollection<PlayerEditable>();
         }
 
-        public TeamEditable(Team team)
+        public TeamEditable Clone()
         {
-            FromTeam(team);
+            var data = new TeamEditable
+            {
+                Id = Id,
+                Name = Name,
+                DisplayName = DisplayName,
+                Description = Description
+            };
+            return data;
         }
+
+        public TeamEditable CreateNewData()
+        {
+            return new TeamEditable { Name = "Team A", DisplayName = "Team A" };
+        }
+
+        public override void ConvertFromModel(Team data)
+        {
+            Id = data.Id;
+            Name = data.Name;
+            DisplayName = data.DisplayName;
+            Description = data.Description;
+        }
+
+        public override void SetModel(Team data)
+        {
+            data.Id = Id;
+            data.Name = Name;
+            data.DisplayName = DisplayName;
+            data.Description = Description;
+        }
+
+        #region properties
 
         [Required]
         [MaxLength(50)]
@@ -57,34 +91,28 @@ namespace Soccer.ViewModels.Data
             }
         }
 
-        public int Id { get; set; }
-
-        public Team ToTeam()
+        public EditableCollection<PlayerEditable> Players
         {
-            var team = new Team
+            get => _players;
+            set
             {
-                Id = Id,
-                Name = Name,
-                DisplayName = DisplayName,
-                Description = Description
-            };
-            return team;
+                if (Equals(value, _players)) return;
+                _players = value;
+                NotifyOfPropertyChange(() => Players);
+            }
         }
+        #endregion
 
-        public void SetTeam(Team team)
-        {
-            team.Id = Id;
-            team.Name = Name;
-            team.DisplayName = DisplayName;
-            team.Description = Description;
-        }
 
-        public void FromTeam(Team team)
+    }
+
+    public class TeamEditWindowViewModel : DataLayoutDialogWindowViewModel<TeamEditable>
+    {
+        protected override string LayoutFileName => "TeamEditWindow.config";
+
+        protected override string Check()
         {
-            Id = team.Id;
-            Name = team.Name;
-            DisplayName = team.DisplayName;
-            Description = team.Description;
+            return string.Empty;
         }
     }
 }

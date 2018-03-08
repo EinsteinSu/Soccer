@@ -8,6 +8,8 @@ namespace Soccer.Business
     {
         IEnumerable<Player> GetPlayersByTeamId(int teamId);
 
+        Player GetPlayer(int playerId);
+
         void AddPlayer(int teamId, Player player);
 
         void UpdatePlayer(Player player);
@@ -29,6 +31,11 @@ namespace Soccer.Business
         public IEnumerable<Player> GetPlayersByTeamId(int teamId)
         {
             return Context.Players.Where(w => w.TeamId == teamId && !w.Deleted);
+        }
+
+        public Player GetPlayer(int playerId)
+        {
+            return _playerMgr.GetItem(playerId);
         }
 
         public void AddPlayer(int teamId, Player player)

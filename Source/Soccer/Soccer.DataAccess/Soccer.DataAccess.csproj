@@ -80,7 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +104,12 @@
     <EmbeddedResource Include="Migrations\201712130850311_test-5.resx">
       <DependentUpon>201712130850311_test-5.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common\Supeng.Data.Common.csproj">
+      <Project>{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}</Project>
+      <Name>Supeng.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,9 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.0.1\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.1, Version=17.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,12 +49,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentPage.cs" />
+    <Compile Include="DataEdit\BatchEditBase.cs" />
+    <Compile Include="DataEdit\BatchEditWithWindow.cs" />
+    <Compile Include="DataEdit\EditableModelBase.cs" />
+    <Compile Include="DataEdit\IEditWindow.cs" />
+    <Compile Include="DataEdit\IModelConvert.cs" />
     <Compile Include="FunctionClickManager.cs" />
     <Compile Include="ISerialNumber.cs" />
     <Compile Include="LicenseController.cs" />
     <Compile Include="MacAddressSerialNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringSecurity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common\Supeng.Data.Common.csproj">
+      <Project>{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}</Project>
+      <Name>Supeng.Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Wpf.Common\Supeng.Wpf.Common.csproj">
+      <Project>{CAF49A5D-5914-4303-93AD-3CF7C7222B10}</Project>
+      <Name>Supeng.Wpf.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Soccer.Business\Soccer.Business.csproj">
+      <Project>{E4E3ABE3-57CF-4FCD-AC1E-659959B85732}</Project>
+      <Name>Soccer.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

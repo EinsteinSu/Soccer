@@ -77,9 +77,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\Data\PlayerEditable.cs" />
     <Compile Include="ViewModels\Data\TeamEditable.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\TeamAndPlayerViewModel.cs" />
+    <Compile Include="ViewModels\WindowsMessageBox.cs" />
     <Compile Include="Views\TeamAndPlayer.xaml.cs">
       <DependentUpon>TeamAndPlayer.xaml</DependentUpon>
     </Compile>
@@ -133,6 +135,10 @@
       <Project>{5931fd3a-3bc8-4ed0-a8e4-9067a8055847}</Project>
       <Name>Supeng.Data.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Wpf.Common\Supeng.Wpf.Common.csproj">
+      <Project>{CAF49A5D-5914-4303-93AD-3CF7C7222B10}</Project>
+      <Name>Supeng.Wpf.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Soccer.Business\Soccer.Business.csproj">
       <Project>{e4e3abe3-57cf-4fcd-ac1e-659959b85732}</Project>
       <Name>Soccer.Business</Name>
@@ -146,5 +152,6 @@
       <Name>Soccer.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

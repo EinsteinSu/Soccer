@@ -19,7 +19,7 @@ namespace Soccer.Business
         protected override string EntityName => "Game Data";
         protected override IEnumerable<GameData> GetEntries()
         {
-            return Context.GameDatas.ToList();
+            return Context.GameDatas.Local.ToList();
         }
 
         protected override GameData GetEntry(int id)
