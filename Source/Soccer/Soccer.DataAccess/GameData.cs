@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Soccer.DataAccess
@@ -37,7 +38,7 @@ namespace Soccer.DataAccess
         public int? ReplacingPlayerId { get; set; }
         #endregion
 
-        public virtual List<Goal> Goals { get; set; }
+        public virtual ObservableCollection<Goal> Goals { get; set; }
     }
 
     public class Goal
@@ -49,6 +50,6 @@ namespace Soccer.DataAccess
         [ForeignKey("GameData")]
         public int GameDataId { get; set; }
 
-        public GameData GameData { get; set; }
+        public virtual GameData GameData { get; set; }
     }
 }

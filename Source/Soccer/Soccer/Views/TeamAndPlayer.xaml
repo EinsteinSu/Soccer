@@ -7,48 +7,8 @@
     xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
     x:Class="Soccer.Views.TeamAndPlayer"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="0,0,-512,-249">
-        <dxg:GridControl x:Name="grid" ItemsSource="{Binding Collection,Mode=TwoWay}" CurrentItem="{Binding CurrentTeam,Mode=TwoWay}">
-            <dxg:GridControl.Columns>
-                <dxg:GridColumn FieldName="Id"></dxg:GridColumn>
-                <dxg:GridColumn FieldName="Name"></dxg:GridColumn>
-                <dxg:GridColumn FieldName="DisplayName"></dxg:GridColumn>
-                <dxg:GridColumn FieldName="Description"></dxg:GridColumn>
-            </dxg:GridControl.Columns>
-            <dxg:GridControl.View>
-                <dxg:TableView x:Name="view" AllowPerPixelScrolling="True" NewItemRowPosition="Top" EditFormShowMode="InlineHideRow" ShowTotalSummary="True" ShowGroupPanel="False"
-                               NavigationStyle="Row" AutoWidth="True">
-                    <dxb:BarManager.DXContextMenu>
-                        <dxb:PopupMenu >
-                            <dxb:BarButtonItem Content="Refresh" Command="{Binding Path=RefreshCommand}"  ></dxb:BarButtonItem>
-                            <dxb:BarButtonItem Content="Add" Command="{Binding Path=AddCommand}"  ></dxb:BarButtonItem>
-                        </dxb:PopupMenu>
-                    </dxb:BarManager.DXContextMenu>
-                    <dxg:TableView.RowCellMenuCustomizations>
-                        <dxb:BarButtonItem Content="Add" Command="{Binding Path=View.DataContext.AddCommand}"/>
-                        <dxb:BarButtonItem Content="Modify"  Command="{Binding Path=View.DataContext.ModifyCommand}"/>
-                        <dxb:BarButtonItem Content="Delete" Command="{Binding Path=View.DataContext.DeleteCommand}"/>
-                        <dxb:BarButtonItem Content="Save" Command="{Binding Path=View.DataContext.SaveCommand}"/>
-                    </dxg:TableView.RowCellMenuCustomizations>
-                </dxg:TableView>
-                
-            </dxg:GridControl.View>
-            <dxg:GridControl.DetailDescriptor>
-                <dxg:TabViewDetailDescriptor>
-                    <dxg:TabViewDetailDescriptor.DetailDescriptors>
-                        <dxg:DataControlDetailDescriptor ItemsSourcePath="Orders">
-                            <dxg:DataControlDetailDescriptor.DataControl>
-                                <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding Players}">
-                                    <dxg:GridControl.View>
-                                        <dxg:TableView DetailHeaderContent="Players" AutoWidth="True" ShowGroupPanel="False" />
-                                    </dxg:GridControl.View>
-                                </dxg:GridControl>
-                            </dxg:DataControlDetailDescriptor.DataControl>
-                        </dxg:DataControlDetailDescriptor>
-                    </dxg:TabViewDetailDescriptor.DetailDescriptors>
-                </dxg:TabViewDetailDescriptor>
-            </dxg:GridControl.DetailDescriptor>
-        </dxg:GridControl>
+    d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid >
+       <dxg:GridControl></dxg:GridControl>
     </Grid>
 </UserControl>

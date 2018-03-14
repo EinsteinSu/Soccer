@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-using DevExpress.Xpf.Bars;
-using DevExpress.Xpf.Grid;
-using Soccer.ViewModels;
+﻿using System.Data.Entity;
+using Soccer.DataAccess;
 
 namespace Soccer.Views
 {
@@ -12,45 +8,29 @@ namespace Soccer.Views
     /// </summary>
     public partial class TeamAndPlayer
     {
+        private SoccerContext _context = new SoccerContext();
         public TeamAndPlayer()
         {
             InitializeComponent();
         }
 
-        protected TeamAndPlayerViewModel ViewModel => DataContext as TeamAndPlayerViewModel;
-
-        private void View_OnRowUpdated(object sender, RowEventArgs e)
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            
-        }
 
-        private void BarItem_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-         
-        }
+            System.Windows.Data.CollectionViewSource viewSource =
+                ((System.Windows.Data.CollectionViewSource)(this.FindResource("teamViewSource")));
 
-        private void BarItem_Player_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-           
-        }
+            // Load is an extension method on IQueryable, 
+            // defined in the System.Data.Entity namespace.
+            // This method enumerates the results of the query, 
+            // similar to ToList but without creating a list.
+            // When used with Linq to Entities this method 
+            // creates entity objects and adds them to the context.
+            _context.Teams.Load();
 
-        private void View_Player_OnRowUpdated(object sender, RowEventArgs e)
-        {
-            
-        }
-
-        private void PlayerView_OnInitNewRow(object sender, InitNewRowEventArgs e)
-        {
-            //var context = this.DataContext as TeamAndPlayerViewModel;
-            //if (context.Collection.CurrentItem == null)
-            //{
-            //    MessageBox.Show("Please select an item of team.");
-            //    e.Handled = true;
-            //}
-            //else
-            //{
-            //    playerGrid.SetCellValue(e.RowHandle, "TeamId", context.Collection.CurrentItem.Id);
-            //}
+            // After the data is loaded call the DbSet<T>.Local property 
+            // to use the DbSet<T> as a binding source.
+            viewSource.Source = _context.Teams.Local;
         }
     }
 }

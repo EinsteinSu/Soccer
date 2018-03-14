@@ -7,13 +7,13 @@ namespace Soccer.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class test4 : IMigrationMetadata
+    public sealed partial class redesignforsimplebinding : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test4));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(redesignforsimplebinding));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712130846261_test-4"; }
+            get { return "201803141240149_redesign-for-simple-binding"; }
         }
         
         string IMigrationMetadata.Source

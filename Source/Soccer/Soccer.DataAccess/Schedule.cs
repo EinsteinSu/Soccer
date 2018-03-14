@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -34,9 +35,8 @@ namespace Soccer.DataAccess
 
         public GameStatus Status { get; set; }
 
-        public List<GameData> Data { get;set; }
+        public ObservableCollection<GameData> Data { get;set; }
 
-        public bool Deleted { get; set; }
     }
 
     public enum GameStatus

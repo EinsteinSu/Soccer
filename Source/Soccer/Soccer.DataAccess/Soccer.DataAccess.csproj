@@ -48,29 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameData.cs" />
-    <Compile Include="Migrations\201712120617077_test.cs" />
-    <Compile Include="Migrations\201712120617077_test.Designer.cs">
-      <DependentUpon>201712120617077_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712120623486_test-1.cs" />
-    <Compile Include="Migrations\201712120623486_test-1.Designer.cs">
-      <DependentUpon>201712120623486_test-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712120624296_test-2.cs" />
-    <Compile Include="Migrations\201712120624296_test-2.Designer.cs">
-      <DependentUpon>201712120624296_test-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712120625474_test-3.cs" />
-    <Compile Include="Migrations\201712120625474_test-3.Designer.cs">
-      <DependentUpon>201712120625474_test-3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712130846261_test-4.cs" />
-    <Compile Include="Migrations\201712130846261_test-4.Designer.cs">
-      <DependentUpon>201712130846261_test-4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712130850311_test-5.cs" />
-    <Compile Include="Migrations\201712130850311_test-5.Designer.cs">
-      <DependentUpon>201712130850311_test-5.cs</DependentUpon>
+    <Compile Include="Migrations\201803141240149_redesign-for-simple-binding.cs" />
+    <Compile Include="Migrations\201803141240149_redesign-for-simple-binding.Designer.cs">
+      <DependentUpon>201803141240149_redesign-for-simple-binding.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -86,30 +66,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712120617077_test.resx">
-      <DependentUpon>201712120617077_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712120623486_test-1.resx">
-      <DependentUpon>201712120623486_test-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712120624296_test-2.resx">
-      <DependentUpon>201712120624296_test-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712120625474_test-3.resx">
-      <DependentUpon>201712120625474_test-3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712130846261_test-4.resx">
-      <DependentUpon>201712130846261_test-4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712130850311_test-5.resx">
-      <DependentUpon>201712130850311_test-5.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\SupengCommon\SupengCommon\Supeng.Data.Common\Supeng.Data.Common.csproj">
       <Project>{5931FD3A-3BC8-4ED0-A8E4-9067A8055847}</Project>
       <Name>Supeng.Data.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803141240149_redesign-for-simple-binding.resx">
+      <DependentUpon>201803141240149_redesign-for-simple-binding.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

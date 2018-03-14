@@ -17,11 +17,9 @@ namespace Soccer.DataAccess
         [MaxLength(10)]
         public string DisplayName { get; set; }
 
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         [ForeignKey("Team")]
         public int TeamId { get; set; }
-
-        public bool Deleted { get; set; }
     }
 }

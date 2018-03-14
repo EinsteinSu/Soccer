@@ -3,10 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
-using Soccer.Business;
 using Soccer.Common;
 using Soccer.DataAccess;
-using Soccer.ViewModels.Data;
 using Soccer.Views;
 
 namespace Soccer.ViewModels
@@ -55,9 +53,9 @@ namespace Soccer.ViewModels
         {
             switch (name)
             {
-                case FunctionClickManager.TeamsAndPlayersName:var vm = new TeamAndPlayerVm();
-                    vm.Refresh();
-                    return new TeamAndPlayer { DataContext = vm };
+                case FunctionClickManager.TeamsAndPlayersName:
+
+                    return new TeamAndPlayer();
                 default:
                     return new TextBlock { Text = name };
             }
